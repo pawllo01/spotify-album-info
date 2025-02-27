@@ -170,7 +170,7 @@ function buildAlbum(albumData, tracksData) {
     const trackIsrc = document.createElement('td');
     if (track.external_ids.isrc) {
       const isrc = track.external_ids.isrc.toUpperCase();
-      trackIsrc.innerHTML = `<a href="https://open.spotify.com/search/isrc%3A${isrc}/tracks" target="_blank">${isrc}</a>`;
+      trackIsrc.innerHTML = `<a href="https://open.spotify.com/search/isrc%3A${isrc}" target="_blank">${isrc}</a>`;
     } else {
       trackIsrc.classList.add('unavailable');
       trackIsrc.textContent = 'undefined';
