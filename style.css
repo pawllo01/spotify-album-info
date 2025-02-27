@@ -1,0 +1,195 @@
+:root {
+  --color-dark: rgb(20, 20, 20);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+a:link,
+a:visited {
+  color: blue;
+}
+
+img {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+h1 {
+  color: white;
+  background-color: var(--color-dark);
+  padding: 16px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+/* search bar */
+input,
+#search-btn {
+  margin-bottom: 6px;
+  padding: 6px;
+  font-size: 1.2rem;
+}
+
+input {
+  width: 100%;
+  max-width: 600px;
+}
+
+#search-btn {
+  width: 110px;
+}
+
+#message {
+  position: absolute;
+}
+
+/* album container */
+#album-container {
+  margin-top: 34px;
+}
+
+#album-container h2,
+#album-container h3,
+#album-container p {
+  margin-top: 8px;
+}
+
+/* cover info container */
+.cover-info-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.cover-img {
+  display: block;
+  max-width: 100%;
+  max-height: 260px;
+  border: 1px solid var(--color-dark);
+}
+
+.album-type {
+  text-transform: capitalize;
+}
+
+.album-name {
+  font-size: 2rem;
+}
+
+.album-explicit-icon {
+  width: 34px;
+  margin-left: 5px;
+  vertical-align: text-top;
+}
+
+.release-date {
+  font-weight: bold;
+}
+
+.musicbrainz-logo {
+  height: 20px;
+  position: absolute;
+  transform: translate(5px, -2px);
+}
+
+/* tracks table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+th,
+td {
+  padding: 5px;
+  border: 1px solid var(--color-dark);
+}
+
+th {
+  background-color: gainsboro;
+}
+
+tr:hover {
+  background-color: #ebebeb;
+}
+
+td:first-child {
+  width: 40px;
+  text-align: right;
+}
+
+td:last-child {
+  width: 0;
+  text-align: center;
+}
+
+.clock-icon {
+  display: block;
+  margin: 0 auto;
+}
+
+.explicit-icon {
+  height: 16px;
+  position: relative;
+  top: 2px;
+  left: 5px;
+  transform: scale(1.4);
+}
+
+.disc-number {
+  background-color: gainsboro;
+  font-weight: bold;
+}
+
+.copyrights p {
+  margin-top: 0 !important;
+  font-size: 0.95rem;
+}
+
+/* album availability */
+.availability-title {
+  margin-top: 16px !important;
+}
+
+.markets {
+  display: block;
+  font-family: monospace;
+  font-size: 0.89rem;
+}
+
+.available {
+  color: green;
+  font-weight: bold;
+}
+
+.unavailable {
+  color: red;
+  font-weight: bold;
+}
+
+@media all and (max-width: 768px) {
+  .cover-info-container {
+    display: block;
+  }
+}
