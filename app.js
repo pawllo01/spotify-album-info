@@ -1,4 +1,5 @@
 import { MARKETS } from './markets.js';
+import { getCookie } from './cookies.js';
 import { fetchToken, fetchAlbumData, fetchTrackIds, fetchTracksData } from './api.js';
 
 const input = document.querySelector('input');
@@ -6,7 +7,7 @@ const searchBtn = document.querySelector('#search-btn');
 const message = document.querySelector('#message');
 const albumContainer = document.querySelector('#album-container');
 
-const token = await fetchToken();
+const token = getCookie('token') || (await fetchToken());
 
 input.value = localStorage.getItem('inputValue');
 albumContainer.innerHTML = localStorage.getItem('albumContainer');

@@ -1,3 +1,5 @@
+import { setCookie } from './cookies.js';
+
 export async function fetchToken() {
   try {
     // bypass CORS - https://allorigins.win/
@@ -6,8 +8,10 @@ export async function fetchToken() {
         encodeURIComponent('https://open.spotify.com/get_access_token')
     );
     const data = await res.json();
+    console.log(data);
 
-    console.log(data.accessToken);
+    setCookie('token', data.accessToken, data.accessTokenExpirationTimestampMs);
+
     return data.accessToken;
   } catch (error) {
     console.error(error);
