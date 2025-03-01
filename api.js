@@ -1,22 +1,26 @@
 import { setCookie } from './cookies.js';
 
 export async function fetchToken() {
-  try {
-    // bypass CORS - https://allorigins.win/
-    const res = await fetch(
-      'https://api.allorigins.win/raw?url=' +
-        encodeURIComponent('https://open.spotify.com/get_access_token')
-    );
-    const data = await res.json();
-    console.log(data);
+  const proxies = ['https://api.allorigins.win/raw?url=', 'https://api.cors.lol/?url='];
 
-    setCookie('token', data.accessToken, data.accessTokenExpirationTimestampMs);
+  for (const proxy of proxies) {
+    try {
+      const res = await fetch(
+        proxy + encodeURIComponent('https://open.spotify.com/get_access_token')
+      );
+      if (!res.ok) throw new Error(`Status: ${res.status}`);
 
-    return data.accessToken;
-  } catch (error) {
-    console.error(error);
-    return null;
+      const data = await res.json();
+      console.log(data);
+
+      setCookie('token', data.accessToken, data.accessTokenExpirationTimestampMs);
+      return data.accessToken;
+    } catch (error) {
+      console.error(`Fetch failed with proxy: ${proxy}`, error);
+    }
   }
+
+  return null;
 }
 
 export async function fetchAlbumData(albumId, token) {
