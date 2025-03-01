@@ -8,6 +8,12 @@ const message = document.querySelector('#message');
 const albumContainer = document.querySelector('#album-container');
 
 const token = getCookie('token') || (await fetchToken());
+if (!token) {
+  searchBtn.disabled = true;
+  message.textContent =
+    'Service temporarily unavailable. Please wait a few minutes and refresh the page';
+  message.classList.add('unavailable');
+}
 
 input.value = localStorage.getItem('inputValue');
 albumContainer.innerHTML = localStorage.getItem('albumContainer');
