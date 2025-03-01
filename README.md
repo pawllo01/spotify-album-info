@@ -10,8 +10,6 @@ A simple web application to fetch album metadata from [Spotify](https://open.spo
 2. Paste a valid Spotify album URL (e.g., `https://open.spotify.com/album/1Mo92916G2mmG7ajpmSVrc`) or just the album ID (`1Mo92916G2mmG7ajpmSVrc`) into the input field.
 3. Click the **Search** button.
 
-Sometimes, the app may experience temporary issues. If it doesn't work, please wait a few minutes and try again.
-
 ## Features
 
 Spotify Album Info provides additional metadata, including:
